@@ -1,0 +1,245 @@
+
+PS C:\D\Laravel> composer
+   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /    
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/     
+                    /_/
+Composer version 2.6.5 2023-10-06 10:11:52
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help                     Display help for the given command. When no command is given display help for the list command
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi|--no-ansi           Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction           Do not ask any interactive question
+      --profile                  Display timing and memory usage information
+      --no-plugins               Whether to disable plugins.
+      --no-scripts               Skips the execution of all scripts defined in composer.json file.
+  -d, --working-dir=WORKING-DIR  If specified, use the given directory as working directory.
+      --no-cache                 Prevent use of the cache
+  -v|vv|vvv, --verbose           Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  about                Shows a short information about Composer
+  archive              Creates an archive of this composer package
+  audit                Checks for security vulnerability advisories for installed packages
+  browse               [home] Opens the package's repository URL or homepage in your browser
+  bump                 Increases the lower limit of your composer.json requirements to the currently installed versions
+  check-platform-reqs  Check that platform requirements are satisfied
+  clear-cache          [clearcache|cc] Clears composer's internal package cache
+  completion           Dump the shell completion script
+  config               Sets config options
+  create-project       Creates new project from a package into given directory
+  depends              [why] Shows which packages cause the given package to be installed
+  diagnose             Diagnoses the system to identify common errors
+  dump-autoload        [dumpautoload] Dumps the autoloader
+  exec                 Executes a vendored binary/script
+  fund                 Discover how to help fund the maintenance of your dependencies
+  global               Allows running commands in the global composer dir ($COMPOSER_HOME)
+  help                 Display help for a command
+  install              [i] Installs the project dependencies from the composer.lock file if present, or falls back on the composer.json
+  licenses             Shows information about licenses of dependencies
+  list                 List commands
+  outdated             Shows a list of installed packages that have updates available, including their latest version
+  prohibits            [why-not] Shows which packages prevent the given package from being installed
+  reinstall            Uninstalls and reinstalls the given package names
+  remove               [rm] Removes a package from the require or require-dev
+  require              [r] Adds required packages to your composer.json and installs them
+  run-script           [run] Runs the scripts defined in composer.json
+  search               Searches for packages
+  self-update          [selfupdate] Updates composer.phar to the latest version
+  show                 [info] Shows information about packages
+  status               Shows a list of locally modified packages
+  suggests             Shows package suggestions
+  update               [u|upgrade] Updates your dependencies to the latest version according to composer.json, and updates the composer.lock file
+  validate             Validates a composer.json and composer.lock
+
+PS C:\D\Laravel> php -v
+PHP 7.4.29 (cli) (built: Apr 12 2022 20:21:18) ( ZTS Visual C++ 2017 x64 )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+PS C:\D\Laravel> 
+
+
+PS C:\D\Laravel> dir
+
+
+    Directorio: C:\D\Laravel
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        31/05/2024     10:50                sistema-facturacion
+
+
+PS C:\D\Laravel>
+
+PS C:\D\Laravel> php -v
+PHP 7.4.29 (cli) (built: Apr 12 2022 20:21:18) ( ZTS Visual C++ 2017 x64 )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+
+PS C:\D\Laravel> cd .\sistema-facturacion\
+PS C:\D\Laravel\sistema-facturacion> php artisan migrate
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (49.29ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (40.04ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (54.81ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (51.06ms)
+PS C:\D\Laravel\sistema-facturacion> php artisan make:migration create_articulos_table
+Created Migration: 2024_05_31_182945_create_articulos_table
+PS C:\D\Laravel\sistema-facturacion> php artisan make:migration create_categorias_table
+Created Migration: 2024_05_31_203049_create_categorias_table
+PS C:\D\Laravel\sistema-facturacion> php artisan migrate
+Migrating: 2024_04_31_173049_create_categorias_table
+Migrated:  2024_04_31_173049_create_categorias_table (15.32ms)
+Migrating: 2024_05_31_182945_create_articulos_table
+Migrated:  2024_05_31_182945_create_articulos_table (38.69ms)
+
+
+PS C:\D\Laravel\sistema-facturacion> php artisan tinker
+> $categoria=new App\Models\Categoria
+= App\Models\Categoria {#4802}
+
+> $categoria->name="Verduras";
+= "Verduras"
+
+> $categoria->descripcion="primera categoria";
+= "primera categoria"
+
+> $categoria->condicion=1;
+= 1
+
+> $categoria->nombre="Verduras";
+= "Verduras"
+
+> $categoria=new App\Models\Categoria
+= App\Models\Categoria {#4789}
+
+> $categoria->nombre="Verduras";
+= "Verduras"
+
+> $categoria->descripcion="primera categoria";
+= "primera categoria"
+
+> $categoria->condicion=1;
+= 1
+
+> $categoria->save();
+= true
+
+> $articulo=new App\Models\Articulo
+= App\Models\Articulo {#4811}
+
+> $articulo=idcategoria=1;
+
+   PARSE ERROR  PHP Parse error: Syntax error, unexpected '=' in vendor\psy\psysh\src\Exception\ParseErrorException.php on line 44.
+
+> $articulo=idcategoria=1
+
+   PARSE ERROR  PHP Parse error: Syntax error, unexpected '=' in vendor\psy\psysh\src\Exception\ParseErrorException.php on line 44.
+
+> $articulo->idcategoria=1
+= 1
+
+> $articulo->codigo=12372727717
+= 12372727717
+
+> $articulo->codigo="12372727717"
+= "12372727717"
+
+> $articulo->nombre="papa"
+= "papa"
+
+> $articulo->precio_venta=15.00
+= 15.0
+
+> $articulo->stock=100
+= 100
+
+> $articulo->descripcion="es de la primera venta"
+= "es de la primera venta"
+
+> $articulo->condicion=1
+= 1
+
+> $articulo->save();
+= true
+
+
+PS C:\D\Laravel\sistema-facturacion> php artisan make:controller CategoriaController
+Controller created successfully.
+
+
+PS C:\D\Laravel\sistema-facturacion> php artisan make:controller ArticuloController 
+Controller created successfully.
+
+
+
+
+
+para el modelo y el controllador
+ php artisan make:model Personas -r
+
+para el modelo y el controllador
+ php artisan make:model Inventarios -r
+
+para el modelo y el controllador
+ php artisan make:model Ventas -r
+
+php artisan make:migration create_inventarios_table
+
+-- despues de agregar los campos
+php artisan migrate
+
+
+php artisan make:migration create_ventas_table
+
+-- despues de agregar los campos
+php artisan migrate
+
+
+
+para los usuarios.
+php artisan tinker
+bcrypt('password');
+
+
+como no me agarraban los cambios.e n el login aplique esto:
+php artisan config:clear
+php artisan view:clear
+php artisan cache:clear
+
+
+
+
+PS C:\D\Laravel\sistema-facturacion> php artisan tinker
+Psy Shell v0.12.3 (PHP 7.4.29 — cli) by Justin Hileman
+> use App\Models\User;
+> use Illuminate\Support\Facades\Hash;
+> $user = new User();
+= App\Models\User {#4810}
+
+> $user->name = 'Leonardo Juarez';
+= "Leonardo Juarez"
+
+> $user->email = 'jjose.juarez@gmail.com';
+= "jjose.juarez@gmail.com"
+
+> $user->password = Hash::make('11111');
+= "$2y$10$jgoGBv1JHF5WlpkihidTdujg03euQcMlbEu2/XrPqQdb53VYuBqwe"
+
+> $user->save();
+= true
+
+>
+PS C:\D\Laravel\sistema-facturacion>
